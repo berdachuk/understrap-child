@@ -195,9 +195,8 @@ gulp.task( 'copy-assets', function() {
         .pipe( gulp.dest( `${paths.js}${paths.vendor}` ) );
 
 // UnderStrap SCSS files
-    gulp.src( `${paths.node}understrap/sass/**/*.scss` )
-        .pipe( gulp.dest( `${paths.dev}/sass/understrap` ) );
-
+//     gulp.src( `${paths.node}understrap/sass/**/*.scss` )
+//         .pipe( gulp.dest( `${paths.dev}/sass/understrap` ) );
     return stream;
 });
 
@@ -215,8 +214,28 @@ gulp.task( 'clean-dist', function() {
 // gulp dist
 // Copies the files to the /dist folder for distribution as simple theme
 gulp.task( 'dist', gulp.series('clean-dist', function copyToDistFolder() {
-    const ignorePaths = [`!${paths.bower}`, `!${paths.bower}/**`, `!${paths.node}`, `!${paths.node}/**`, `!${paths.dev}`, `!${paths.dev}/**`, `!${paths.dist}`, `!${paths.dist}/**`, `!${paths.distprod}`, `!${paths.distprod}/**`, `!${paths.sass}`, `!${paths.sass}/**`],
-    ignoreFiles = [ '!readme.txt', '!readme.md', '!package.json', '!package-lock.json', '!gulpfile.js', '!gulpconfig.json', '!CHANGELOG.md', '!.travis.yml', '!jshintignore',  '!codesniffer.ruleset.xml' ];
+    const ignorePaths = [`!${paths.bower}`,
+            `!${paths.bower}/**`,
+            `!${paths.node}`,
+            `!${paths.node}/**`,
+            `!${paths.dev}`,
+            `!${paths.dev}/**`,
+            `!${paths.dist}`,
+            `!${paths.dist}/**`,
+            `!${paths.distprod}`,
+            `!${paths.distprod}/**`,
+            `!${paths.sass}`,
+            `!${paths.sass}/**`],
+    ignoreFiles = [ '!readme.txt',
+        '!README.md',
+        '!package.json',
+        '!package-lock.json',
+        '!gulpfile.js',
+        '!gulpconfig.json',
+        '!CHANGELOG.md',
+        '!.travis.yml',
+        '!jshintignore',
+        '!codesniffer.ruleset.xml' ];
 
     console.log({ ignorePaths, ignoreFiles })
 
